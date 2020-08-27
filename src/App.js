@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
 import courses from './images/course';
-import Course from './components/Course';
+import Course from './components/Course/Course';
 import { useState } from 'react';
+import Navigation from './components/Navigation/Navigation';
 
 function App() {
   const [purchased, setPurchased] = useState([])
@@ -19,18 +20,7 @@ function App() {
   return (
     <div className="App">
       <header className="container">
-        <nav className="navbar navbar-expand-lg navbar-light">
-          <a className="navbar-brand" href="#">ONLINE COURSES</a>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav ml-auto">
-              <a className="nav-item nav-link active" href="#">Courses Added: {purchased.length}</a>
-              <a className="nav-item nav-link active" href="#">Total Price: {totalPrice.toFixed(2)}</a>
-            </div>
-          </div>
-        </nav>
+        <Navigation length={purchased.length} totalPrice={totalPrice} />
       </header>
 
       <main>
@@ -43,7 +33,7 @@ function App() {
         </div>
       </main>
 
-      <footer style={{padding:'10px'}}>&copy; Sadman Sakib Mugdho</footer>
+      <footer style={{ padding: '10px' }}>&copy; Sadman Sakib Mugdho</footer>
     </div>
   );
 }
